@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<link rel=stylesheet type="text/css" href="CSSreset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		
+		
+		
+		
+		<style>			
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
+		
+		@keyframes fallstar{
+		0% {
+		transform: translateY(0px)
+		}
+		100% {
+		transform: translateY(1000px)
+		}
+		}		
+		
+		
+		
+		:root{
+		--shineStar
+		}
+		
+		*{
+		padding:0;
+		margin:0;	
+		text-decoration:none;
+		color:#000;
+		white-space:nowrap;
+		font-family: 'Noto Sans TC', sans-serif;
+		}
+		
+		body{
+		width:100%;		
+		max-width:1280px;	
+		background: radial-gradient(ellipse at bottom, #717a85 0%, #090A0F 100%);
+		margin:auto;
+		}	
+		
+		
+		#star1{
+		box-shadow:var(--shineStar);
+		width:2px;
+		height:2px;
+		position:absolute;
+		top:0px;
+		left:0px;
+		animation:fallstar 50s linear infinite; 
+		animation-delay:-5s;
+		}
+		
+		#star2{
+		box-shadow:var(--shineStar);	
+		width:3px;
+		height:3px;
+		position:absolute;
+		top:-50px;
+		left:-60px;
+		animation:fallstar 30s linear infinite; 
+		animation-delay:-5s;
+		}
+		
+		#star3{
+		box-shadow:var(--shineStar);
+		width:2px;
+		height:2px;
+		position:absolute;
+		top:-300px;
+		left:-80px;
+		animation:fallstar 40s linear infinite; 
+		animation-delay:-5s;
+		}
+		
+		#star4{
+		box-shadow:var(--shineStar);	
+		width:3px;
+		height:3px;
+		position:absolute;
+		top:-450px;
+		left:200px;
+		animation:fallstar 60s linear infinite; 
+		animation-delay:-5s;
+		}
+		
+		.header{
+		width:100%;
+		margin-bottom:10px;
+		background:#FA0;
+		transform:translateY(-150px);
+		transition:0.3s;
+		position:relative;
+		z-index:2;
+		border-radius: 0 0 40% 40%;
+		}
+		
+		#menu-ctr{
+		position:absolute;
+		opacity:0;
+		}
+		
+		#menu-ctr:checked + .header{
+		transform:translateY(-20px);
+		transition:0.3s;
+		}	
+
+		.header .menu{
+		width:80%;
+		height:100%;
+		display:flex;
+		margin:20px auto 5px;
+		padding:10px 0 5px;
+		align-items:flex-end;
+		justify-content:center;
+		}
+		
+		.header-pic{
+		width:100px;
+		margin:5px 10px;
+		position:relative;	
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		text-align:center;
+		}
+		
+		.header img{
+		width:120%;
+		z-index:1;
+		}
+		
+		.header label{
+		width:100px;
+		height:40px;
+		bottom:-40px;
+		border-radius:0 0 20px 20px;
+		position:absolute;
+		background:#FA0;
+		}
+		
+		.header label i{
+		font-size:30px;
+		transform:translateY(0px);
+		transition:0.2s;				
+		}
+	
+		.header label:hover i{
+		transform:translateY(8px);
+		transition:0.2s;
+		}
+		
+		.header .menu ul{
+		font-size:16px;		
+		margin:0 55px;
+		justify-content:flex-end;
+		padding-left:5px;
+		line-height:1.7;
+		}
+		
+		.header .menu ul div{
+		font-size:25px;			
+		margin:45px 0 20px 0;
+		}
+		
+		.header nav ul:nth-child(2){
+		order:-3;
+		}
+		.header nav ul:nth-child(3){
+		order:-2;
+		}
+		/*圖片輪放區*/
+		
+		#main-pic-box{
+		width:1280px;
+		height:500px;
+		margin:0 auto;
+		background:#666;
+		transform:translateY(-130px);
+		position:relative;
+		z-index:1;	
+	
+		}
+
+		#left-btn{
+		height:100px;
+		width:50px;
+		background:#adaeff;
+		position:absolute;
+		top:200px;
+		left:0px;
+		opacity:0.8;
+		font-size:40px;
+		line-height:100px;
+		text-align:center;
+		border-radius: 0 30px 30px 0 ;
+		}
+		
+		#right-btn{
+		height:100px;
+		width:50px;
+		background:#adaeff;
+		position:absolute;
+		top:200px;
+		right:0px;
+		opacity:0.8;
+		font-size:40px;
+		line-height:100px;
+		text-align:center;
+		border-radius:30px 0 0 30px;
+		}
+		
+		
+		/*圖片輪放區*/
+		
+		/*中行介紹*/
+		
+		.japan-travel{
+		width:1200px;
+		margin:20px auto;
+		transform:translateY(-130px);
+		
+		}
+		
+		.osaka-travel,
+		.awaji-travel{
+		width:100%;
+		height:300px;
+		margin:15px 0;		
+		display:flex;
+		border:2px dotted #000;
+		border-radius:20px;
+		box-shadow:0 0 10px 0 #000;
+		}
+		
+		.osaka-pic{
+		border-radius:20px 0 0 20px;
+		}
+		
+		.awaji-pic{
+		border-radius:0 20px 20px 0;
+		}
+		
+		.osaka-introduce,
+		.awaji-introduce{
+		display:flex;
+		flex-direction:column;
+		padding:0 20px;
+		width:100%;
+		position:relative;
+		}
+		
+		.awaji-introduce{	
+		order:-1;
+		}
+		
+		.osaka-introduce h2,
+		.awaji-introduce h2{
+		font-size:40px;
+		line-height:1.2;
+		color:#FFF;
+		}
+		
+		.osaka-introduce .introduce-content,
+		.awaji-introduce .introduce-content{
+		font-size:20px;
+		line-height:1.6;
+		color:#FFF;
+		}
+		
+		.read-btn{
+		width:auto;
+		padding:3px;
+		border:1px solid #fff;
+		border-radius:5px;
+		font-size:14px;
+		align-self:flex-end;	
+		position:absolute;
+		bottom:15px;
+		color:#FFF;
+		}
+		
+		/*中行介紹*/
+		
+		
+		/*其他旅遊*/
+		
+		.other-travel{
+		width:1200px;
+		margin:0 auto;
+		transform:translateY(-130px);
+		
+		}
+		
+		.other-travel h3{
+		width:200px;
+		margin:0 auto;
+		font-size:40px;
+		color:#fff;
+		}
+		
+		.other-travel ul{
+		display:flex;
+		flex-wrap:wrap;
+		margin:40px 0;
+		padding-left:50px;
+		}
+		
+		.other-travel li a{
+		color:#fff;
+		}
+		
+		.other-travel li{
+		width:120px;
+		height:120px;
+		line-height:120px;
+		color:#FFF;
+		position:relative;
+		text-align:center;
+		font-size:35px;
+		transition:0.35s;
+		}
+
+		.other-travel li+li{
+		margin-left:200px;
+		}
+		
+		.other-travel li:before{
+		content:'';
+		display:block;
+		width:150px;
+		height:150px;
+		border:1px solid #000;
+		position:absolute;
+		top:-16px;
+		bottom:0;
+		left:-16px;
+		right:0;
+		transform:rotate(-45deg) scale(1);
+		transition:0.3s;
+		opacity:0.6;
+		z-index:-1;
+		
+		}
+		
+		.other-travel li:after{
+		content:'';
+		width:170px;
+		height:170px;
+		border:3px solid #FFEB3B;
+		position:absolute;
+		top:-27px;
+		bottom:0;
+		left:-27px;
+		right:0;
+		transform:rotate(-45deg) scale(1);
+		opacity:1;
+		transition:0.7s;
+		box-shadow:0 0 15px 0 #0d0622;
+		}
+			
+		.other-travel li:hover{
+		font-size:45px;
+		transition:0.4s;		
+		}	
+			
+		.other-travel li:hover:before{
+		transform:rotate(-45deg) scale(1.2);
+		transition:0.4s;
+		}	
+		
+		.other-travel li:hover:after{
+		transform:rotate(225deg) scale(1.2);
+		transition:0.7s;
+		}
+		
+		.other-travel li:nth-child(5){
+		margin-left: 150px;	
+		
+		}	
+		.other-travel li:nth-child(n+5){
+		left:10px;
+		}
+	
+		.other-travel li:nth-child(n+8){
+		left:0px;
+		}
+	
+		.other-travel li:nth-child(7){
+		margin-right:150px;
+		}		
+		.other-travel li:nth-child(8){
+		margin-left:0px;
+		}
+		
+		.other-travel li:nth-child(1):before{ background:url(pic/hokaido-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(2):before{ background:url(pic/aomori-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(3):before{ background:url(pic/senntai-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(4):before{ background:url(pic/niikata-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(5):before{ background:url(pic/tokyo-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(6):before{ background:url(pic/sizuoka-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(7):before{ background:url(pic/kanezawa-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(8):before{ background:url(pic/nagoya-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(9):before{ background:url(pic/nara-0817.jpg) no-repeat center center/200% 200%;}
+		.other-travel li:nth-child(10):before{ background:url(pic/koube-0817.jpg) no-repeat center center/200% 200%;}	
+		.other-travel li:nth-child(11):before{ background:url(pic/takamatu-0817.jpg) no-repeat center center/200% 200%;}
+		
+		/*其他旅遊*/
+		
+		/*頁尾*/
+		
+		.footer{
+		width:100%;
+		display:flex;
+		background:#fa0;
+		font-size:12px; 
+		
+		}
+		
+		.container{
+		width:1200px;
+		margin:auto;
+		display:flex;
+		}
+		
+		.container .left{
+		width:25%;
+		display:flex;
+
+		}
+		
+		.container .left .item{
+		width:auto;
+		margin:20px auto;
+		}
+		
+		.container .left h4{
+		font-size:20px;
+		}
+		
+		
+		.container .right{
+		width:75%;
+		display:flex;
+		flex-wrap:wrap;
+		white-space: normal;
+		} 	
+		
+		.container .right .company-site{
+		width:auto;
+		margin:20px auto;	
+		position:relative;
+		}
+		
+		.container .right .company-site+.company-site:before{
+		content:'';
+		position:absolute;
+		width:2px;
+		height:95px;
+		background:#000;
+		top:0;
+		left:-10px;
+		}
+		
+		.container .right .company-site .title{
+		font-size:20px;	
+		}
+		
+		.copy-right{
+		background:#000;
+		text-align:center;	
+		}
+		
+		.copy-right p{
+		color:#fff;
+		font-size:12px;
+		}
+		
+		
+		
+		/*頁尾*/
+		</style>
+		
+	</head>
+
+	<body>
+		<div id="star1"></div>
+		<div id="star2"></div>
+		<div id="star3"></div>
+		<div id="star4"></div>
+		<input type="checkbox" id="menu-ctr" name=""></input>
+		<div class="header">
+			<nav class="menu">
+				<div class="header-pic">
+					<img  src="pic/logo.png"></img>	
+					<label for="menu-ctr">
+						<i class="fa fa-angle-double-down" aria-hidden="true"></i>					
+					</laber>
+				</div>
+				<ul>
+					<li>台灣本島</li>
+					<li>澎湖</li>				
+					<li>琉球</li>
+					<li>蘭嶼</li>
+					<div><a href="#">國內行程</a></div>	
+				</ul>
+				<ul>
+					<li>歐美地區</li>
+					<li>東歐地區</li>				
+					<li>亞洲旅程</li>
+					<div><a href="#">國外旅遊</a></div>	
+				</ul>
+				<ul>
+					<li>疫情須知</li>
+					<li>特價活動</li>				
+					<li>節日慶典</li>
+					<div><a href="#">最新消息</a></div>	
+				</ul>
+				<ul>
+					<li>我的行程</li>
+					<li>會員資料</li>				
+					<li>點數使用</li>
+					<div><a href="#">會員專區</a></div>	
+				</ul>
+			</nav>
+		</div>
+		<div id="main-pic-box";>			
+			<div id="left-btn">
+				<i class="fa fa-angle-double-down" aria-hidden="true" style="transform:rotate(90deg);"></i>
+			</div>
+			<div id="right-btn">
+				<i class="fa fa-angle-double-down" aria-hidden="true" style="transform:rotate(-90deg);"></i>
+			</div>
+			<div id="main-pic"><img src="pic/pic1.jpg" width="1280" height="500" style="opacity: 1;"></img></div>
+		</div>
+		
+		<div class="japan-travel">
+			<div class="osaka-travel">
+				<img class="osaka-pic" src="pic/ph_001.jpg"></img>
+				<div class="osaka-introduce">
+				<h2>大阪旅遊</h2>
+					<a class="introduce-content" href="#">梅田</a>
+					<a class="introduce-content" href="#">難波</a>
+					<a class="introduce-content" href="#">環球影城</a>
+					<a class="introduce-content" href="#">石切劍箭神社</a>
+					<a class="read-btn" href="#">Read more...</a>
+				</div>			
+			</div>
+			
+			<div class="awaji-travel">
+				<img class="awaji-pic" src="pic/ph_002.jpg"></img>
+				<div class="awaji-introduce">
+					<h2>淡路旅遊</h2>
+					<a class="introduce-content" href="#">鳴門漩渦</a>
+					<a class="introduce-content" href="#">明石大橋</a>
+					<a class="introduce-content" href="#">洋蔥館</a>
+					<a class="introduce-content" href="#">幸福鬆餅</a>
+					<a class="read-btn" href="#">Read more...</a>
+				</div>		
+			</div>
+		</div>
+
+		<div class="other-travel">
+			<h3>更多行程</h3>
+			<ul>
+				<li><a href="#">北海道</a></li>
+				<li><a href="#">青森</a></li>
+				<li><a href="#">仙台</a></li>
+				<li><a href="#">新潟</a></li>
+				<li><a href="#">東京</a></li>
+				<li><a href="#">靜岡</a></li>
+				<li><a href="#">金澤</a></li>
+				<li><a href="#">名古屋</a></li>
+				<li><a href="#">奈良</a></li>
+				<li><a href="#">神戶</a></li>
+				<li><a href="#">高松</a></li>
+			</ul>
+		</div>
+		
+		<div class="footer">
+			<div class="container">			
+				<div class="left">
+					<div class="item">
+						<h4>關於我們</h4>
+						<a href="">AAAA</a><br>
+						<a href="">VVVV</a><br>
+						<a href="">SSSSS</a><br>						
+					</div>
+					
+					<div class="item">
+						<h4>徵才資訊</h4>
+						<a href="">企業理念</a><br>
+						<a href="">工作環境</a><br>
+						<a href="">同僚分享</a><br>
+						<a href="">需求職缺</a>						
+					</div>
+				</div>
+
+				<div class="right">
+					<div class="company-site">
+						<div class="title">台北總公司</div>
+						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:02-2211-2233</p><br>
+						<p>地址:100台北市中正區中華路二段307巷</p>
+					</div>
+					<div class="company-site">
+						<div class="title">台中分店</div>
+						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:02-2211-2233</p><br>
+						<p>地址:100台北市中正區中華路二段307巷</p>
+					</div>
+					<div class="company-site">
+						<div class="title">高雄分店</div>
+						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:02-2211-2233</p><br>
+						<p>地址:100台北市中正區中華路二段307巷</p>
+					</div>
+					<div class="company-site">
+						<div class="title">大阪支店</div>
+						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:02-2211-2233</p><br>
+						<p>地址:100台北市中正區中華路二段307巷</p>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="copy-right">
+				<p>Copyright © 2020 PENG Inc.</p>
+		</div>
+		
+	<script type="text/javascript">
+		
+		var X=""
+		for (Q=100;Q>=0;Q=Q-1){
+		X += Math.round(Math.random()* 1500) + 'px' + ' ' +Math.round(Math.random() * 2000)+"px " + '2px #FFF,';
+		}
+		X=X+"0px 0px 2px #FFF"
+		document.documentElement.style.setProperty("--shineStar", X )
+	
+		
+        var jsImg = new Array("pic/pic1.jpg","pic/pic2.jpg","pic/pic3.jpg","pic/pic4.jpg");
+        var jsImg_len = jsImg.length;  
+        var i=0;  
+		
+		document.getElementById("left-btn").onclick = function(){
+			
+			document.getElementById("main-pic").style.opacity=0
+			if(i<=0)  i=4;
+			
+			var sample = Number(document.getElementById("main-pic").style.opacity)
+			var count = setInterval(function(){		
+			sample=sample+0.1
+			document.getElementById("main-pic").style.opacity = sample
+			if(sample >=1){
+			clearInterval(count);
+			}
+			},50)
+			i=i-1;
+			document.getElementById("main-pic").innerHTML = "<img src="+jsImg[i]+" width=1280 height=500 ></img>";       
+            
+        	
+		}
+		
+		document.getElementById("right-btn").onclick = function(){
+			document.getElementById("main-pic").style.opacity=0
+			if(i>=jsImg_len-1)  i=-1;	
+			
+			var sample = Number(document.getElementById("main-pic").style.opacity)	
+			var count = setInterval(function(){		
+			sample=sample+0.1
+			document.getElementById("main-pic").style.opacity = sample
+			if(sample >=1){
+			clearInterval(count);
+			}
+			},50)
+			
+			
+			i++;
+			document.getElementById("main-pic").innerHTML = "<img src="+jsImg[i]+" width=1280 height=500 ></img>";            
+			    	
+		
+		}
+		
+	
+	
+
+
+	</script>
+
+	</body>
+
+
+</html>
+
+	
