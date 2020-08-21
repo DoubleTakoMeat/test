@@ -175,15 +175,29 @@
 		}
 		/*圖片輪放區*/
 		
-		#main-pic-box{
+		.main-pic-box{
 		width:1280px;
 		height:500px;
 		margin:0 auto;
-		background:#666;
+		background:##1c2a3a;
 		transform:translateY(-130px);
 		position:relative;
 		z-index:1;	
-	
+		}
+
+		.main-pic{
+		width:128px;
+		height:500px;
+		overflow:hidden; 
+		position:absolute;
+		border:none;
+		}
+		
+		.chaning-pic{
+		width:1280px;
+		height:500px;
+		opacity:1;
+		position:absolute;
 		}
 
 		#left-btn{
@@ -198,6 +212,7 @@
 		line-height:100px;
 		text-align:center;
 		border-radius: 0 30px 30px 0 ;
+		z-index:2;
 		}
 		
 		#right-btn{
@@ -212,6 +227,7 @@
 		line-height:100px;
 		text-align:center;
 		border-radius:30px 0 0 30px;
+		z-index:2;
 		}
 		
 		
@@ -528,14 +544,23 @@
 				</ul>
 			</nav>
 		</div>
-		<div id="main-pic-box";>			
+		<div class="main-pic-box";>			
 			<div id="left-btn">
 				<i class="fa fa-angle-double-down" aria-hidden="true" style="transform:rotate(90deg);"></i>
 			</div>
 			<div id="right-btn">
 				<i class="fa fa-angle-double-down" aria-hidden="true" style="transform:rotate(-90deg);"></i>
 			</div>
-			<div id="main-pic"><img src="pic/pic1.jpg" width="1280" height="500" style="opacity: 1;"></img></div>
+			<div class="main-pic" style="left:0px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"    style="left:0px;"></img></div>
+			<div class="main-pic" style="left:128px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-128px;"></img></div>
+			<div class="main-pic" style="left:256px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-256px;"></img></div>
+			<div class="main-pic" style="left:384px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-384px;"></img></div>
+			<div class="main-pic" style="left:512px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-512px;"></img></div>
+			<div class="main-pic" style="left:640px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-640px;"></img></div>
+			<div class="main-pic" style="left:768px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-768px;"></img></div>
+			<div class="main-pic" style="left:896px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="left:-896px;"></img></div>
+			<div class="main-pic" style="right:128px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic" style="right:-128px" ></img></div>
+			<div class="main-pic" style="right:0px; opacity:1 ;"><img src="pic/pic1.jpg" class="chaning-pic"  style="right:0px;"> </img></div>
 		</div>
 		
 		<div class="japan-travel">
@@ -646,48 +671,120 @@
         var jsImg_len = jsImg.length;  
         var i=0;  
 		
+	
 		document.getElementById("left-btn").onclick = function(){
-			
-			document.getElementById("main-pic").style.opacity=0
 			if(i<=0)  i=4;
 			
-			var sample = Number(document.getElementById("main-pic").style.opacity)
-			var count = setInterval(function(){		
-			sample=sample+0.1
-			document.getElementById("main-pic").style.opacity = sample
-			if(sample >=1){
-			clearInterval(count);
-			}
-			},50)
-			i=i-1;
-			document.getElementById("main-pic").innerHTML = "<img src="+jsImg[i]+" width=1280 height=500 ></img>";       
-            
-        	
+			function funcA(number){
+			return new  Promise(function(resolve, reject){
+						var boxcount = setTimeout(function(){
+							document.getElementsByClassName("main-pic")[number].style.opacity = 0
+							var sample = Number(document.getElementsByClassName("main-pic")[number].style.opacity)	
+							var imgcount = setInterval(function(){		
+							sample=sample+0.1
+							document.getElementsByClassName("main-pic")[number].style.opacity = sample
+							if(sample >=1){
+							clearInterval(imgcount);
+							}
+							},50)
+							document.getElementsByClassName("main-pic")[number].innerHTML = "<img src="+jsImg[i]+" class='chaning-pic'"+ 'style="left:'+ number*-128 +'px">'
+						resolve()
+						clearTimeout(boxcount)
+
+						}, 50);		
+				});
+			}			
+			
+			funcA(9)
+			.then(function(){
+				return funcA(8) ;
+			})
+			.then(function(){
+				return funcA(7) ;
+			})
+			.then(function(){
+				return funcA(6) ;
+			})
+			.then(function(){
+				return funcA(5) ;
+			})
+			.then(function(){
+				return funcA(4) ;
+			})
+			.then(function(){
+				return funcA(3) ;
+			})
+			.then(function(){
+				return funcA(2) ;
+			})
+			.then(function(){
+				return funcA(1) ;
+			})
+			.then(function(){
+				return funcA(0) ;
+			})
+			
+        	i=i-1;
 		}
-		
+	
 		document.getElementById("right-btn").onclick = function(){
-			document.getElementById("main-pic").style.opacity=0
+			
 			if(i>=jsImg_len-1)  i=-1;	
 			
-			var sample = Number(document.getElementById("main-pic").style.opacity)	
-			var count = setInterval(function(){		
-			sample=sample+0.1
-			document.getElementById("main-pic").style.opacity = sample
-			if(sample >=1){
-			clearInterval(count);
-			}
-			},50)
-			
-			
-			i++;
-			document.getElementById("main-pic").innerHTML = "<img src="+jsImg[i]+" width=1280 height=500 ></img>";            
-			    	
-		
-		}
-		
-	
-	
+			function funcA(number){
+			return new  Promise(function(resolve, reject){
+						var boxcount = setTimeout(function(){
+							document.getElementsByClassName("main-pic")[number].style.opacity = 0
+							var sample = Number(document.getElementsByClassName("main-pic")[number].style.opacity)	
+							var imgcount = setInterval(function(){		
+							sample=sample+0.1
+							document.getElementsByClassName("main-pic")[number].style.opacity = sample
+							if(sample >=1){
+							clearInterval(imgcount);
+							}
+							},50)
+						document.getElementsByClassName("main-pic")[number].innerHTML = "<img src="+jsImg[i]+" class='chaning-pic'"+ 'style="left:'+ number*-128 +'px">'
+						resolve()
+						clearTimeout(boxcount)
 
+						}, 50);		
+				});
+			}
+	
+			
+		
+			funcA(0)
+			.then(function(){
+				return funcA(1) ;
+			})
+			.then(function(){
+				return funcA(2) ;
+			})
+			.then(function(){
+				return funcA(3) ;
+			})
+			.then(function(){
+				return funcA(4) ;
+			})
+			.then(function(){
+				return funcA(5) ;
+			})
+			.then(function(){
+				return funcA(6) ;
+			})
+			.then(function(){
+				return funcA(7) ;
+			})
+			.then(function(){
+				return funcA(8) ;
+			})
+			.then(function(){
+				return funcA(9) ;
+			})
+				
+			i++;               	
+			}
+		
 
 	</script>
 
