@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<link rel=stylesheet type="text/css" href="CSSreset.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-		
+		<script src="https://kit.fontawesome.com/65e4aa0e56.js" crossorigin="anonymous"></script>
 		
 		
 		
@@ -390,7 +390,7 @@
 		}	
 		
 		.other-travel li:hover:after{
-		transform:rotate(225deg) scale(1.2);
+		transform:rotate(135deg) scale(1.2);
 		transition:0.7s;
 		}
 		
@@ -441,6 +441,7 @@
 		width:1200px;
 		margin:auto;
 		display:flex;
+	
 		}
 		
 		.container .left{
@@ -499,6 +500,49 @@
 		
 		
 		/*頁尾*/
+		/*側欄*/
+		
+	
+		
+		
+		.side_box{
+		position:fixed;
+		left:0;
+		top:calc(50% - 140px);
+		}
+		
+		.side_box_icon{
+		width:40px;
+		height:33px;
+		font-size:40px;
+		line-height:60px;
+		text-align:center;
+		background:transparent;
+		border-radius:20%;
+		position:relative;
+		}
+		
+		.side_box_icon:before{
+		content:'';
+		position:absolute;
+		background:#fff;
+		width: 34px;
+		height: 31px;
+		top: 16px;
+		left: 4px;
+		z-index: -1;
+		border-radius: 20%;
+		}
+		
+		.side_box_icon:nth-child(1) i{color:#00c300}
+		.side_box_icon:nth-child(2) i{color:#3b5998}
+		.side_box_icon:nth-child(3) i{background:linear-gradient(192deg,#5851db,#c13584,#fd1d1d,#fcaf45,#ffdc80);color:transparent;-webkit-background-clip: text;}
+		.side_box_icon:nth-child(4) i{color:#777; font-size:35px; }
+		
+		
+		
+		
+		/*側欄*/
 		</style>
 		
 	</head>
@@ -508,6 +552,7 @@
 		<div id="star2"></div>
 		<div id="star3"></div>
 		<div id="star4"></div>
+		
 		<input type="checkbox" id="menu-ctr" name=""></input>
 		<div class="header">
 			<nav class="menu">
@@ -611,9 +656,9 @@
 				<div class="left">
 					<div class="item">
 						<h4>關於我們</h4>
-						<a href="">AAAA</a><br>
-						<a href="">VVVV</a><br>
-						<a href="">SSSSS</a><br>						
+						<a href="">公司沿革</a><br>
+						<a href="">服務範圍</a><br>
+						<a href="">企業合作</a><br>						
 					</div>
 					
 					<div class="item">
@@ -630,31 +675,39 @@
 						<div class="title">台北總公司</div>
 						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
 						<p>傳真:02-2211-2233</p><br>
-						<p>地址:100台北市中正區中華路二段307巷</p>
+						<p>地址:100台北市中正區中華路二段</p>
 					</div>
 					<div class="company-site">
 						<div class="title">台中分店</div>
-						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
-						<p>傳真:02-2211-2233</p><br>
-						<p>地址:100台北市中正區中華路二段307巷</p>
+						<p>電話:04-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:04-2211-2233</p><br>
+						<p>地址:407台中市西屯區文華路</p>
 					</div>
 					<div class="company-site">
 						<div class="title">高雄分店</div>
-						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
-						<p>傳真:02-2211-2233</p><br>
-						<p>地址:100台北市中正區中華路二段307巷</p>
+						<p>電話:07-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:07-2211-2233</p><br>
+						<p>地址:800高雄市新興區六合二路</p>
 					</div>
 					<div class="company-site">
 						<div class="title">大阪支店</div>
-						<p>電話:02-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
-						<p>傳真:02-2211-2233</p><br>
-						<p>地址:100台北市中正區中華路二段307巷</p>
+						<p>電話:+81-6-2211-2211<br>&emsp;&emsp; 02-2211-2222</p><br>
+						<p>傳真:+81-6-2211-2233</p><br>
+						<p>地址:556-0002 大阪府大阪市浪速区</p>
 					</div>
 				</div>
 			</div>
 		</div>	
 		<div class="copy-right">
 				<p>Copyright © 2020 PENG Inc.</p>
+		</div>
+		
+		<div class="side_box">
+			<div class="side_box_icon"><i class="fab fa-line"></i></div>
+			<div class="side_box_icon"><i class="fab fa-facebook-square"></i></div>
+			<div class="side_box_icon"><i class="fab fa-instagram-square"></i></div>
+			<div class="side_box_icon"><i class="fas fa-envelope-open-text"></i></div>
+			
 		</div>
 		
 	<script type="text/javascript">
